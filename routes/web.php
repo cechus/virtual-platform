@@ -135,7 +135,7 @@ Route::group(['middleware' => 'administrador'], function() {
 
  Route::get('admin',function(){
 
-  return 'usuario administrador';
+  return view('temp');
   });
 
 });

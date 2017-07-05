@@ -11,5 +11,19 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+// mix.js('resources/assets/js/app.js', 'public/js')
+   mix.sass('resources/assets/sass/app.scss', 'public/css').options({
+        postCss: [
+           require('postcss-import'),
+           require('postcss-css-variables'),
+           require('postcss-conditionals'),
+           require('postcss-custom-media'),
+           require('autoprefixer')
+        ]
+   })
+	   .combine([
+          'public/css/animate.css',
+          'public/css/font-awesome.css',
+      ], 'public/css/all.css');
+
+
